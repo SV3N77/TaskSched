@@ -44,10 +44,10 @@ struct AddTaskView: View {
                                 .strokeBorder(.black)
                                 .padding(-10)
                         }
-                    }*/
+                    } background() is deprecated, need to find another function*/
                     .contentShape(RoundedRectangle(cornerRadius: 10))
                     /*.onTapGesture {
-                        taskModel.taskColor = color
+                        $taskModel.taskColor = color
                     }*/
                     
                     }
@@ -55,6 +55,35 @@ struct AddTaskView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.top, 20)
+            
+            Divider()
+                .padding(.vertical, 10)
+            
+            VStack(alignment: .leading, spacing:20) {
+                Text("Enter Task Title")
+                    .font(.title2)
+                    .foregroundColor(.black)
+                
+                /*TextField("Task", text: $taskModel.taskTitle)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 10)*/
+            }
+            
+            /*
+            
+            .overlay(alignment: .bottomTrailing) {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "calendar")
+                        foregroundColor(.gray)
+                }
+            }
+            
+            */
+            Divider()
+            
+            
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .padding()
