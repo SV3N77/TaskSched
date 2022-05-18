@@ -35,7 +35,7 @@ struct AddTaskView: View {
                         
             HStack(spacing: 40) {
                 ForEach(colours, id: \.self){
-                color in Circle()
+                    color in RoundedRectangle(cornerRadius: 10)
                     .fill(Color(color))
                     .frame(width: 30, height: 30)
                     /*.background{
@@ -45,6 +45,11 @@ struct AddTaskView: View {
                                 .padding(-10)
                         }
                     }*/
+                    .contentShape(RoundedRectangle(cornerRadius: 10))
+                    /*.onTapGesture {
+                        taskModel.taskColor = color
+                    }*/
+                    
                     }
                 }
             }
