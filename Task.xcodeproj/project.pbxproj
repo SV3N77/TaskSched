@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1122BBDC2836605900E3D150 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8F13B2832069700B53799 /* ContentView.swift */; };
+		1122BBDD2836605A00E3D150 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8F13B2832069700B53799 /* ContentView.swift */; };
 		71C8F13A2832069700B53799 /* TaskScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8F1392832069700B53799 /* TaskScheduler.swift */; };
 		71C8F13C2832069700B53799 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8F13B2832069700B53799 /* ContentView.swift */; };
 		71C8F13E2832069C00B53799 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71C8F13D2832069C00B53799 /* Assets.xcassets */; };
@@ -302,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1122BBDC2836605900E3D150 /* ContentView.swift in Sources */,
 				71C8F1502832069D00B53799 /* TaskTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +315,7 @@
 			files = (
 				71C8F15A2832069D00B53799 /* TaskUITests.swift in Sources */,
 				71C8F15C2832069D00B53799 /* TaskUITestsLaunchTests.swift in Sources */,
+				1122BBDD2836605A00E3D150 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

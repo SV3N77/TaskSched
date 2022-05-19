@@ -74,7 +74,7 @@ struct TaskMenuHome: View {
     @ViewBuilder
     func TaskRowView(task: Task)-> some View{
         VStack(alignment: .leading, spacing: 10) {
-            HStack{
+            /*HStack{
                 Text(task.type ?? "")
                     .font(.callout)
                     .padding(.vertical, 5)
@@ -94,7 +94,11 @@ struct TaskMenuHome: View {
                             .foregroundColor(.black)
                     }
                 }
-            }
+            }*/
+            Text(task.title ?? "")
+                .font(.title2.bold())
+                .foregroundColor(.black)
+                .padding(.vertical, 10)
         }
         .padding()
         .frame(maxWidth: .infinity)
@@ -102,8 +106,8 @@ struct TaskMenuHome: View {
             RoundedRectangle(cornerRadius: 12, style: .continuous)
                 .fill(Color(task.color ?? "Red"))
         }
-    }*/
-    
+    }
+    */
     
     // Custome segment for navbar menu items
     @ViewBuilder
