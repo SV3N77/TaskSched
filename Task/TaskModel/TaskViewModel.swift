@@ -14,6 +14,7 @@ class TaskViewModel: ObservableObject {
     // new task properties
     @Published var openEditTask: Bool = false
     @Published var taskTitle: String = ""
+    @Published var taskColor: String = "Red"
     @Published var taskDeadline: Date = Date()
     @Published var taskType: String = "Basic"
 }

@@ -15,16 +15,15 @@ struct AddTaskView: View {
             Text("Add Task")
                 .font(.title2.bold())
                 .frame(maxWidth: .infinity)
-                .overlay(alignment: .leading) {
-            
-                    Button {
-                        env.dismiss()
-                    } label: {
-                        Image(systemName: "arrow.left")
-                            .font(.title2)
-                            .foregroundColor(.black)
-                    }
-                }
+        .overlay(alignment: .leading) {
+            Button {
+                env.dismiss()
+            } label: {
+                Image(systemName: "arrow.left")
+                    .font(.title2)
+                    .foregroundColor(.black)
+            }
+        }
                 
             VStack(alignment: .leading, spacing:20) {
                 Text("Choose Task Colour")
@@ -60,17 +59,16 @@ struct AddTaskView: View {
                 .padding(.vertical, 10)
             
             VStack(alignment: .leading, spacing:20) {
-                Text("Enter Task Title")
+                Text("Set Task Date")
                     .font(.title2)
                     .foregroundColor(.black)
                 
-                /*TextField("Task", text: $taskModel.taskTitle)
-                    .frame(maxWidth: .infinity)
-                    .padding(.top, 10)*/
+                Text(taskModel.taskDeadline.formatted(date: .abbreviated, time: .omitted) + ", " + taskModel.taskDeadline.formatted(date: .omitted, time: .shortened))
+                    .font(.callout)
+                    .fontWeight(.semibold)
+                    .padding(.top, 10)
             }
-            
-            /*
-            
+            .frame(maxWidth: .infinity, alignment: .leading)
             .overlay(alignment: .bottomTrailing) {
                 Button {
                     
@@ -80,8 +78,23 @@ struct AddTaskView: View {
                 }
             }
             
-            */
             Divider()
+            
+            VStack(alignment: .leading, spacing:20) {
+                Text("Enter Task Name")
+                    .font(.title2)
+                    .foregroundColor(.black)
+                
+                TextField("Task", text: $taskModel.taskTitle)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 10)
+            }
+            
+            padding(.top, 10)
+            
+            
+            Divider()
+            
             
             
         }
