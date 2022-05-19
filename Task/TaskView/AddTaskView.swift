@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Photos
 
 struct AddTaskView: View {
     @EnvironmentObject var taskModel: TaskViewModel
@@ -72,11 +73,10 @@ struct AddTaskView: View {
                 Button {
                     
                 } label: {
-                    Image(systemName: "calendar")
+                        Image(systemName: "Calendar")
                         foregroundColor(.gray)
                 }
             }*/
-            
             Divider()
             
             VStack(alignment: .leading, spacing:20) {
@@ -113,6 +113,25 @@ struct AddTaskView: View {
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .padding()
+        .overlay{
+            ZStack{
+                if taskModel.datePicker{
+                    Rectangle()
+                        .fill(.ultraThinMaterial)
+                        .ignoresSafeArea()
+                        .onTapGesture{
+                            taskModel.datePicker = false
+                        }
+                    DatePicker.init("", selection: $taskModel.taskDeadline, in: Date.now...Date.distantFuture)
+                        .datePickerStyle(.graphical)
+                        .labelsHidden()
+                        .padding()
+                        .background(.white, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                        .padding()
+                }
+            }
+            .animation(.easeInOut, value: taskModel.datePicker)
+        }
     }
 }
 
