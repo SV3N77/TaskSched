@@ -34,7 +34,7 @@ struct AddTaskView: View {
                         
             HStack(spacing: 40) {
                 ForEach(colours, id: \.self){
-                    color in RoundedRectangle(cornerRadius: 10)
+                    color in Circle()
                     .fill(Color(color))
                     .frame(width: 30, height: 30)
                     /*.background{
@@ -44,7 +44,7 @@ struct AddTaskView: View {
                                 .padding(-10)
                         }
                     } background() is deprecated, need to find another function*/
-                    .contentShape(RoundedRectangle(cornerRadius: 10))
+                    .contentShape(Circle())
                     /*.onTapGesture {
                         $taskModel.taskColor = color
                     }*/
@@ -121,5 +121,6 @@ struct AddTaskView: View {
 struct AddTaskView_Previews: PreviewProvider {
     static var previews: some View {
         AddTaskView()
+            .environmentObject(TaskViewModel())
     }
 }
