@@ -69,14 +69,13 @@ struct AddTaskView: View {
                     .padding(.top, 10)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            /*.overlay(alignment: .bottomTrailing) {
+            .overlay(alignment: .bottomTrailing) {
                 Button {
-                    
+                    taskModel.datePicker.toggle()
                 } label: {
-                        Image(systemName: "Calendar")
-                        foregroundColor(.gray)
+                        Image(systemName: "calendar")
                 }
-            }*/
+            }
             Divider()
             
             VStack(alignment: .leading, spacing:20) {
