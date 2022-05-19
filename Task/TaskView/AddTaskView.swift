@@ -37,18 +37,17 @@ struct AddTaskView: View {
                     color in Circle()
                     .fill(Color(color))
                     .frame(width: 30, height: 30)
-                    /*.background{
+                    .background{
                         if taskModel.taskColor == color {
                             Circle()
-                                .strokeBorder(.black)
-                                .padding(-10)
+                                .strokeBorder(.gray)
+                                .padding(-5)
                         }
-                    } background() is deprecated, need to find another function*/
+                    }
                     .contentShape(Circle())
-                    /*.onTapGesture {
-                        $taskModel.taskColor = color
-                    }*/
-                    
+                    .onTapGesture {
+                        taskModel.taskColor = color
+                    }
                     }
                 }
             }
@@ -76,7 +75,7 @@ struct AddTaskView: View {
                     Image(systemName: "calendar")
                         foregroundColor(.gray)
                 }
-            } calender error*/
+            }*/
             
             Divider()
             
@@ -89,9 +88,6 @@ struct AddTaskView: View {
                     .frame(maxWidth: .infinity)
                     .padding(.top, 10)
             }
-            
-            padding(.top, 10)
-            
             
             Divider()
             
