@@ -32,7 +32,7 @@ struct TaskMenuHome: View {
         // Add task button
         .overlay(alignment: .bottom){
             Button{
-                
+                taskModel.openEditTask.toggle()
             } label: {
                 Label {
                     Text("Add Task")
@@ -48,6 +48,10 @@ struct TaskMenuHome: View {
             }
             .padding(.top, 10)
             .frame(maxWidth: .infinity)
+        }
+        .fullScreenCover(isPresented: $taskModel.openEditTask) {
+            AddTaskView()
+                .environmentObject(taskModel)
         }
     }
     

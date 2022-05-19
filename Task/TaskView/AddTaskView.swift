@@ -69,14 +69,14 @@ struct AddTaskView: View {
                     .padding(.top, 10)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .overlay(alignment: .bottomTrailing) {
+            /*.overlay(alignment: .bottomTrailing) {
                 Button {
                     
                 } label: {
                     Image(systemName: "calendar")
                         foregroundColor(.gray)
                 }
-            }
+            } calender error*/
             
             Divider()
             
@@ -95,7 +95,22 @@ struct AddTaskView: View {
             
             Divider()
             
-            
+            Button {
+                
+            } label: {
+                Text("Add Task!")
+                    .font(.callout)
+                    .fontWeight(.semibold)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 10)
+                    .foregroundColor(.white)
+                    .background {
+                        Capsule()
+                            .fill(.black)
+                    }
+            }
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .padding(.bottom, 10)
             
         }
         .frame(maxHeight: .infinity, alignment: .top)
