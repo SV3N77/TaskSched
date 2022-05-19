@@ -49,7 +49,9 @@ struct TaskMenuHome: View {
             .padding(.top, 10)
             .frame(maxWidth: .infinity)
         }
-        .fullScreenCover(isPresented: $taskModel.openEditTask) {
+        .fullScreenCover(isPresented: $taskModel.openEditTask){
+            taskModel.resetTaskData()
+        } content: {
             AddTaskView()
                 .environmentObject(taskModel)
         }

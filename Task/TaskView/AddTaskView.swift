@@ -25,10 +25,10 @@ struct AddTaskView: View {
             }
         }
                 
-            VStack(alignment: .leading, spacing:20) {
-                Text("Choose Task Colour")
-                .font(.title2)
-                .foregroundColor(.black)
+        VStack(alignment: .leading, spacing:20) {
+            Text("Choose Task Colour")
+            .font(.title2)
+            .foregroundColor(.black)
                         
             let colours: [String] = ["Red", "Green", "Blue"]
                         
@@ -48,9 +48,9 @@ struct AddTaskView: View {
                     .onTapGesture {
                         taskModel.taskColor = color
                     }
-                    }
                 }
             }
+        }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.top, 20)
             
@@ -92,7 +92,9 @@ struct AddTaskView: View {
             Divider()
             
             Button {
-                
+                if taskModel.addTask(context: env.managedObjectContext){
+                    env.dismiss()
+                }
             } label: {
                 Text("Add Task!")
                     .font(.callout)
