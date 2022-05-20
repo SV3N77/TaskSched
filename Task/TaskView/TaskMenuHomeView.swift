@@ -11,7 +11,8 @@ struct TaskMenuHome: View {
     @StateObject var taskModel: TaskViewModel = .init()
     // init animation namespace
     @Namespace var animation
-    /*@FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath:\Task.deadline, ascending: false)], predicate: nil, animation: .easeInOut) var tasks: FetchedResults<Task>*/
+    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath:\Task.deadline, ascending: false)], predicate: nil, animation: .easeInOut) var tasks: FetchedResults<Task>
+    @Environment(\.self) var env
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
@@ -59,7 +60,7 @@ struct TaskMenuHome: View {
         }
     }
     
-    /*//Vertical Task View
+    //Vertical Task View
     @ViewBuilder
     func TaskView() -> some View{
         LazyVStack(spacing: 20){
@@ -74,17 +75,7 @@ struct TaskMenuHome: View {
     @ViewBuilder
     func TaskRowView(task: Task)-> some View{
         VStack(alignment: .leading, spacing: 10) {
-            /*HStack{
-                Text(task.type ?? "")
-                    .font(.callout)
-                    .padding(.vertical, 5)
-                    .padding(.horizontal)
-                    .background{
-                        Capsule()
-                            .fill(.gray.opacity(0.3))
-                    }
-                Spacer()
-                
+            HStack{
                 //edit button
                 if !task.isCompleted{
                     Button{
@@ -94,7 +85,7 @@ struct TaskMenuHome: View {
                             .foregroundColor(.black)
                     }
                 }
-            }*/
+            }
             Text(task.title ?? "")
                 .font(.title2.bold())
                 .foregroundColor(.black)
@@ -107,7 +98,7 @@ struct TaskMenuHome: View {
                 .fill(Color(task.color ?? "Red"))
         }
     }
-    */
+    
     
     // Custome segment for navbar menu items
     @ViewBuilder
