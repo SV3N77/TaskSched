@@ -16,38 +16,38 @@ struct AddTaskView: View {
         // Add task full screen cover
         VStack(spacing: 20){
             Text("Add Task")
-                .font(.title2.bold())
+                .font(.custom("Helvetica Neue", size: 20).bold())
                 .frame(maxWidth: .infinity)
         .overlay(alignment: .leading) {
             Button {
                 env.dismiss()
             } label: {
                 Image(systemName: "arrow.uturn.left")
-                    .font(.title2)
+                    .font(.custom("Helvetica Neue", size: 20))
                     .foregroundColor(.black)
             }
         }
         // Choose colour Vstack
         VStack(alignment: .leading, spacing:20) {
             Text("Choose Task Colour")
-            .font(.title2)
-            .foregroundColor(.black)
+                .font(.custom("Helvetica Neue", size: 20))
+                .foregroundColor(.black)
                         
             let colours: [String] = ["Red", "Green", "Blue"]
                         
             HStack(spacing: 40) {
                 ForEach(colours, id: \.self){
-                    color in Circle()
+                    color in RoundedRectangle(cornerRadius: 10)
                     .fill(Color(color))
                     .frame(width: 30, height: 30)
                     .background{
                         if taskModel.taskColor == color {
-                            Circle()
+                            RoundedRectangle(cornerRadius: 15)
                                 .strokeBorder(.gray)
                                 .padding(-5)
                         }
                     }
-                    .contentShape(Circle())
+                    .contentShape(RoundedRectangle(cornerRadius: 10))
                     .onTapGesture {
                         taskModel.taskColor = color
                     }
@@ -58,16 +58,14 @@ struct AddTaskView: View {
             .padding(.top, 20)
             
             Divider()
-                .padding(.vertical, 10)
             // Setting Date of deadline
-            VStack(alignment: .leading, spacing:20) {
+            VStack(alignment: .leading, spacing:10) {
                 Text("Set Task Date")
-                    .font(.title2)
+                    .font(.custom("Helvetica Neue", size: 20))
                     .foregroundColor(.black)
                 
                 Text(taskModel.taskDeadline.formatted(date: .abbreviated, time: .omitted) + ", " + taskModel.taskDeadline.formatted(date: .omitted, time: .shortened))
-                    .font(.callout)
-                    .fontWeight(.semibold)
+                    .font(.custom("Helvetica Neue", size: 20).bold())
                     .padding(.top, 10)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -80,9 +78,9 @@ struct AddTaskView: View {
             }
             Divider()
             // Adding task name
-            VStack(alignment: .leading, spacing:20) {
+            VStack(alignment: .leading, spacing:10) {
                 Text("Enter Task Name")
-                    .font(.title2)
+                    .font(.custom("Helvetica Neue", size: 20))
                     .foregroundColor(.black)
                 
                 TextField("Task", text: $taskModel.taskTitle)
@@ -98,10 +96,9 @@ struct AddTaskView: View {
                 }
             } label: {
                 Text("Add Task!")
-                    .font(.callout)
-                    .fontWeight(.semibold)
+                    .font(.custom("Helvetica Neue", size: 20).bold())
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 10)
+                    .padding(.vertical, 15)
                     .foregroundColor(.white)
                     .background {
                         Capsule()
@@ -128,9 +125,7 @@ struct AddTaskView: View {
                     DatePicker.init("", selection: $taskModel.taskDeadline, in: Date.now...Date.distantFuture)
                         .datePickerStyle(.graphical)
                         .labelsHidden()
-                        .padding()
                         .background(.white, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                        .padding()
                 }
             }
             .animation(.easeInOut, value: taskModel.datePicker)
