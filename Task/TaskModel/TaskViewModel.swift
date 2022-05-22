@@ -35,7 +35,6 @@ class TaskViewModel: ObservableObject {
     
     // Reseting data
     func resetTaskData(){
-        /*taskType = "Basic"*/
         taskColor = "Red"
         taskTitle = ""
         taskDeadline = Date()

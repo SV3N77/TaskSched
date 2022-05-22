@@ -23,7 +23,7 @@ struct TaskMenuHome: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.vertical)
-                
+                // Calling nav items to be 
                 NavbarItems()
                     .padding(.top, 4)
                     .padding(.bottom, 10)

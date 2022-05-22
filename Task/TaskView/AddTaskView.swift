@@ -89,7 +89,7 @@ struct AddTaskView: View {
             }
             
             Divider()
-            // Button for storing information into the database
+            // Button for storing information into the database --not working--
             Button {
                 if taskModel.addTask(context: env.managedObjectContext){
                     env.dismiss()
@@ -115,6 +115,7 @@ struct AddTaskView: View {
         .padding()
         .overlay{
             ZStack{
+                // Opens date picker that appears on top
                 if taskModel.datePicker{
                     Rectangle()
                         .fill(.ultraThinMaterial)
