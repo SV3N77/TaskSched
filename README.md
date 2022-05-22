@@ -1,5 +1,6 @@
 # Task Scheduler
-Link to Github repository: https://github.com/SV3N77/TaskSched
+Link to Github repository: https://github.com/SV3N77/TaskSched.
+
 A simple task scheduler app where you can add tasks to with a deadline to the app.
 Made by:
 - Wesley-Jin: Wesley Jin 13537232 
