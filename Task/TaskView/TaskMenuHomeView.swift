@@ -28,26 +28,30 @@ struct TaskMenuHome: View {
                 
                 NavbarItems()
                     .padding(.top, 4)
-                
-                VStack(alignment: .leading, spacing: 20){
-                    HStack(spacing: 230){
-                        VStack(alignment: .center, spacing: 20){
+                    .padding(.bottom, 10)
+                // Hard coded task card what it is meant to look like
+                VStack(alignment: .leading,spacing: 10){
+                    HStack(spacing: 180){
+                        VStack(alignment: .leading){
                             Text("Example Task")
-                                .font(.custom("Helvetica Neue", size: 15))
-                                .padding(.vertical, 10)
+                                .font(.custom("Helvetica Neue", size: 20))
+                                .padding(10)
                             Text("Date Due:")
-                                .padding(.bottom, 10)
+                                .font(.custom("Helvetica Neue", size: 15))
+                                .padding(10)
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         Circle()
-                            .size(width: 25, height:25)
-                            .frame(alignment: .bottomTrailing)
-                            .padding(.vertical, 15)
+                            .fill(.red)
+                            .frame(width: 25, height:25)
+                            .padding()
                     }
+                    
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background{
-                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                        .fill(.blue)
+                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .fill(.orange)
                 }
             }
             .padding()
@@ -67,7 +71,7 @@ struct TaskMenuHome: View {
                 .foregroundColor(.white)
                 .padding(.vertical, 10)
                 .padding(.horizontal)
-                .background(.black, in: Capsule())
+                .background(.blue, in: Capsule())
             }
             .padding(.top, 10)
             .frame(maxWidth: .infinity)
@@ -131,13 +135,13 @@ struct TaskMenuHome: View {
                 Text(tab)
                     .font(.custom("Helvetica Neue", size: 18))
                     .fontWeight(.semibold)
-                    .foregroundColor(taskModel.currentTab == tab ? .white : .black)
+                    .foregroundColor(taskModel.currentTab == tab ? .white : .green)
                     .padding(.vertical, 10)
                     .frame(maxWidth: .infinity)
                     .background{
                         if taskModel.currentTab == tab{
                             Capsule()
-                                .fill(.black)
+                                .fill(.blue)
                                 .matchedGeometryEffect(id: "TAB", in: animation)
                         }
                     }
