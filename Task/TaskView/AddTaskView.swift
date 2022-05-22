@@ -20,7 +20,7 @@ struct AddTaskView: View {
             Button {
                 env.dismiss()
             } label: {
-                Image(systemName: "arrow.left")
+                Image(systemName: "arrow.uturn.left")
                     .font(.title2)
                     .foregroundColor(.black)
             }
@@ -73,7 +73,7 @@ struct AddTaskView: View {
                 Button {
                     taskModel.datePicker.toggle()
                 } label: {
-                        Image(systemName: "calendar")
+                        Image(systemName: "calendar.badge.clock")
                 }
             }
             Divider()
@@ -109,7 +109,7 @@ struct AddTaskView: View {
             .frame(maxHeight: .infinity, alignment: .bottom)
             .padding(.bottom, 10)
             .disabled(taskModel.taskTitle == "")
-            .opacity(taskModel.taskTitle == "" ? 0.6 : 1)
+            .opacity(taskModel.taskTitle == "" ? 0.8 : 1)
             
         }
         .frame(maxHeight: .infinity, alignment: .top)
@@ -127,7 +127,7 @@ struct AddTaskView: View {
                         .datePickerStyle(.graphical)
                         .labelsHidden()
                         .padding()
-                        .background(.white, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                        .background(.white, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
                         .padding()
                 }
             }

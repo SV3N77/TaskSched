@@ -42,7 +42,7 @@ struct TaskMenuHome: View {
                         .font(.custom("Helvetica Neue", size: 20))
                         .fontWeight(.semibold)
                 } icon: {
-                    Image(systemName: "plus.app.fill")
+                    Image(systemName: "square.and.arrow.up")
                 }
                 .foregroundColor(.white)
                 .padding(.vertical, 10)
