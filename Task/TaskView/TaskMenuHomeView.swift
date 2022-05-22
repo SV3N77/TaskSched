@@ -28,6 +28,21 @@ struct TaskMenuHome: View {
                 
                 NavbarItems()
                     .padding(.top, 4)
+                
+                VStack(alignment: .leading, spacing: 20){
+                    HStack{
+                        VStack{
+                            Text("Example Task")
+                                .font(.custom("Helvetica Neue", size: 15))
+                            Text("Date Due:")
+                        }
+                        Circle()
+                            .size(width: 50, height:50)
+                            .frame(alignment: .bottomTrailing)
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(.blue)
             }
             .padding()
         }
