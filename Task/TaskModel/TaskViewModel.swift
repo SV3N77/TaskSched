@@ -9,6 +9,7 @@ import SwiftUI
 import CoreData
 
 class TaskViewModel: ObservableObject {
+    // Supposed to be database to store variables
     @Published var currentTab: String = "Upcoming"
     
     // New task properties

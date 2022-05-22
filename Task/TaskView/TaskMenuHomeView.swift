@@ -11,8 +11,6 @@ struct TaskMenuHome: View {
     @StateObject var taskModel: TaskViewModel = .init()
     // Init animation namespace
     @Namespace var animation
-    // Fetch request for the database
-    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath:\Task.deadline, ascending: false)], predicate: nil, animation: .easeInOut) var tasks: FetchedResults<Task>
     @Environment(\.self) var env
     
     var body: some View {
@@ -51,7 +49,7 @@ struct TaskMenuHome: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background{
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        .fill(.orange)
+                        .fill(.yellow)
                 }
             }
             .padding()
@@ -82,45 +80,6 @@ struct TaskMenuHome: View {
         } content: {
         AddTaskView()
             .environmentObject(taskModel)
-        }
-    }
-    
-    // Vertical Task View for the task cards
-    @ViewBuilder
-    func TaskView() -> some View{
-        LazyVStack(spacing: 20){
-            ForEach(tasks){task in
-                TaskRowView(task: task)
-            }
-        }
-        .padding(.top, 20)
-    }
-    
-    // Horizontal Task View for inside task cards
-    @ViewBuilder
-    func TaskRowView(task: Task)-> some View{
-        VStack(alignment: .leading, spacing: 10) {
-            HStack{
-                // Edit button
-                if !task.isCompleted{
-                    Button{
-                        
-                    } label: {
-                        Image(systemName: "square.and.pencil")
-                            .foregroundColor(.black)
-                    }
-                }
-            }
-            Text(task.title ?? "")
-                .font(.title2.bold())
-                .foregroundColor(.black)
-                .padding(.vertical, 10)
-        }
-        .padding()
-        .frame(maxWidth: .infinity)
-        .background{
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(Color(task.color ?? "Red"))
         }
     }
     
