@@ -9,9 +9,11 @@ import SwiftUI
 import Photos
 
 struct AddTaskView: View {
+    // Init environment object
     @EnvironmentObject var taskModel: TaskViewModel
     @Environment(\.self) var env
     var body: some View {
+        // Add task full screen cover
         VStack(spacing: 20){
             Text("Add Task")
                 .font(.title2.bold())
@@ -25,7 +27,7 @@ struct AddTaskView: View {
                     .foregroundColor(.black)
             }
         }
-                
+        // Choose colour Vstack
         VStack(alignment: .leading, spacing:20) {
             Text("Choose Task Colour")
             .font(.title2)
@@ -57,7 +59,7 @@ struct AddTaskView: View {
             
             Divider()
                 .padding(.vertical, 10)
-            
+            // Setting Date of deadline
             VStack(alignment: .leading, spacing:20) {
                 Text("Set Task Date")
                     .font(.title2)
@@ -77,7 +79,7 @@ struct AddTaskView: View {
                 }
             }
             Divider()
-            
+            // Adding task name
             VStack(alignment: .leading, spacing:20) {
                 Text("Enter Task Name")
                     .font(.title2)
@@ -89,7 +91,7 @@ struct AddTaskView: View {
             }
             
             Divider()
-            
+            // Button for storing information into the database
             Button {
                 if taskModel.addTask(context: env.managedObjectContext){
                     env.dismiss()

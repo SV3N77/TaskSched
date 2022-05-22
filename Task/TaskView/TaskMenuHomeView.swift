@@ -7,10 +7,11 @@
 import SwiftUI
 
 struct TaskMenuHome: View {
-    // init TaskViewModel Observable
+    // Init TaskViewModel Observable
     @StateObject var taskModel: TaskViewModel = .init()
-    // init animation namespace
+    // Init animation namespace
     @Namespace var animation
+    // Fetch request for the database
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath:\Task.deadline, ascending: false)], predicate: nil, animation: .easeInOut) var tasks: FetchedResults<Task>
     @Environment(\.self) var env
     
@@ -19,8 +20,6 @@ struct TaskMenuHome: View {
             // Vertical Stack for title
             VStack{
                 VStack(alignment: .leading, spacing: 8){
-                    Text("Welcome Back!")
-                        .font(.custom("Helvetica Neue", size: 20))
                     Text("Upcoming Tasks")
                         .font(.custom("Helvetica Neue", size: 25).bold())
                 }
@@ -52,6 +51,7 @@ struct TaskMenuHome: View {
             .padding(.top, 10)
             .frame(maxWidth: .infinity)
         }
+        // Pressing addTask button will move to a full screeen cover of options
         .fullScreenCover(isPresented: $taskModel.openEditTask){
             taskModel.resetTaskData()
         } content: {
@@ -60,7 +60,7 @@ struct TaskMenuHome: View {
         }
     }
     
-    //Vertical Task View
+    // Vertical Task View for the task cards
     @ViewBuilder
     func TaskView() -> some View{
         LazyVStack(spacing: 20){
@@ -71,12 +71,12 @@ struct TaskMenuHome: View {
         .padding(.top, 20)
     }
     
-    //Horizontal Task View
+    // Horizontal Task View for inside task cards
     @ViewBuilder
     func TaskRowView(task: Task)-> some View{
         VStack(alignment: .leading, spacing: 10) {
             HStack{
-                //edit button
+                // Edit button
                 if !task.isCompleted{
                     Button{
                         
@@ -100,9 +100,10 @@ struct TaskMenuHome: View {
     }
     
     
-    // Custome segment for navbar menu items
+    // Custom segment for navbar menu items
     @ViewBuilder
     func NavbarItems()->some View{
+        // Tabs for the different status's
         let tabs = ["Upcoming", "Completed"]
         HStack(spacing: 10){
             ForEach(tabs,id: \.self){ tab in

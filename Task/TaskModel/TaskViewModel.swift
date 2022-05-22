@@ -11,13 +11,14 @@ import CoreData
 class TaskViewModel: ObservableObject {
     @Published var currentTab: String = "Upcoming"
     
-    // new task properties
+    // New task properties
     @Published var openEditTask: Bool = false
     @Published var taskTitle: String = ""
     @Published var taskColor: String = "Red"
     @Published var taskDeadline: Date = Date()
     @Published var datePicker: Bool = false
     
+    // Saving the new information to the database
     func addTask(context: NSManagedObjectContext) -> Bool{
         let task = Task(context: context)
         task.title = taskTitle
@@ -31,6 +32,7 @@ class TaskViewModel: ObservableObject {
         return false
     }
     
+    // Reseting data
     func resetTaskData(){
         /*taskType = "Basic"*/
         taskColor = "Red"
