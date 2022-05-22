@@ -30,19 +30,25 @@ struct TaskMenuHome: View {
                     .padding(.top, 4)
                 
                 VStack(alignment: .leading, spacing: 20){
-                    HStack{
-                        VStack{
+                    HStack(spacing: 230){
+                        VStack(alignment: .center, spacing: 20){
                             Text("Example Task")
                                 .font(.custom("Helvetica Neue", size: 15))
+                                .padding(.vertical, 10)
                             Text("Date Due:")
+                                .padding(.bottom, 10)
                         }
                         Circle()
-                            .size(width: 50, height:50)
+                            .size(width: 25, height:25)
                             .frame(alignment: .bottomTrailing)
+                            .padding(.vertical, 15)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(.blue)
+                .background{
+                    RoundedRectangle(cornerRadius: 15, style: .continuous)
+                        .fill(.blue)
+                }
             }
             .padding()
         }
